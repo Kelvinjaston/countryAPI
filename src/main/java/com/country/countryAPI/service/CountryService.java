@@ -65,7 +65,7 @@ public class CountryService {
         public String base;
         public Map<String, Double> rates;
     }
-    @Scheduled(fixedRate = 3600000)
+    @Scheduled(fixedRate = 3600000, initialDelay = 300000)
     @Transactional
     public StatusResponse refreshCountryData() {
         log.info("Starting country data refresh...");
