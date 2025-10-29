@@ -1,5 +1,6 @@
 package com.country.countryAPI.service;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.client.RestTemplate;
 import com.country.countryAPI.model.Country;
 import com.country.countryAPI.repo.CountryRepository;
@@ -64,6 +65,7 @@ public class CountryService {
         public String base;
         public Map<String, Double> rates;
     }
+    @Scheduled(fixedRate = 3600000)
     @Transactional
     public StatusResponse refreshCountryData() {
         log.info("Starting country data refresh...");
